@@ -1,4 +1,5 @@
-﻿#include <iostream>
+//https://inf-ege.sdamgia.ru/problem?id=35485
+#include <iostream>
 #include <fstream>
 
 using namespace std;
