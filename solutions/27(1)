@@ -1,0 +1,47 @@
+//https://inf-ege.sdamgia.ru/problem?id=38961
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    int N, x;
+    fstream file("E:\\Downloads\\27-B.txt", ios_base::in);
+    int left[10];
+    int right[10];
+    file >> N;
+    int c = 0;
+    int sum = 0;
+    for (int i = 0; i < 10; i++)
+    {
+        left[i] = 0;
+    }
+    while (file >> x)
+    {
+        sum += x;
+        if (x % 2 == 0)
+        {
+            c++;
+        }
+        int d = c % 10;
+        if (left[d] == 0)
+        {
+            left[d] = sum;
+        }
+        right[d] = sum;
+    }
+    if (c % 10 == 0)
+    {
+        cout << sum << endl;
+    }
+    else
+    {
+        int max = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            max = std::max(max, right[i] - left[i]);
+        }
+        cout << max << endl;
+    }
+}
